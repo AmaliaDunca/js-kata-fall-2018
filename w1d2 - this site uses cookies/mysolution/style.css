@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(173, 163, 184);
+  width: 100%;
+  box-sizing: border-box;
+}
+.cookie {
+  overflow: hidden;
+  background-color: cornsilk;
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  top: calc(50vh-100px);
+  transform: translate(-400px);
+  transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+}
+.cookie.moveIn {
+  transform: translateX(calc(50vw - 150px));
+}
+.accept {
+  background-color: #4caf81;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.accept:hover {
+  background-color: green;
+}
