@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: repeat(2, 3fr);
+            grid-gap: 1.5em;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tweets</h1>
+    <main>
+        <template id="tweetTemplate">
+            <article>
+                <h1>Tweet</h1>
+                <h2> - USER</h2>
+            </article>
+        </template>
+    </main>
+    <script>
+        window.addEventListener("load", () => {
+            const template = document.querySelector("#tweetTemplate").content;
+            main = document.querySelector("main");
+            fetch("https://kea-alt-del.dk/twitter/api/?hashtag=es6 ")
+                .then(res => res.json())
+                .then(data => {
+                    data.statuses.forEach(showTweet);
+                })
+
+            function showTweet(tweet) {
+                const clone = template.cloneNode(true);
+                clone.querySelector("h1").textContent = tweet.text;
+                clone.querySelector("h2").textContent = `User_` + tweet.user.screen_name;
+                main.appendChild(clone)
+            }
+
+
+        })
+
+    </script>
+
+    <!-- https://kea-alt-del.dk/twitter/api/?hashtag=es6 -->
+</body>
+
+</html>
