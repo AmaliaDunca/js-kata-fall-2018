@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#products {
+  display: flex;
+  justify-content: space-around;
+}
+.active {
+  display: none;
+}
+#modal_container {
+  width: 50vw;
+  height: 50vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 400px;
+  left: 300px;
+}
+
+#modal_window {
+  max-width: 80vw;
+  top: 400px;
+  left: 300px;
+  background-color: aqua;
+}
+
+.hidden {
+  visibility: hidden;
+}
